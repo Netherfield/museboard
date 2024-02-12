@@ -1,0 +1,14 @@
+query example
+
+20 works in romanctic fiction, in english
+SELECT DISTINCT ?item ?itemLabel
+WHERE
+{
+  ?item wdt:P136 wd:Q19765983 ;
+        wdt:P407 wd:Q1860 .
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en" 
+  }
+}
+LIMIT 20
