@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../static/style_home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="search-container">
+<!--        <form action="/action_page.php">-->
+<!--          <input type="text" placeholder="" name="search" />-->
+<!--          <button type="submit"><i class="fa fa-search"></i></button>-->
+<!--        </form>-->
+      </div>
+      <a href="#news" class="tit">MUSE BOARD</a>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="dropdown-content">
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+
+    <div class="container">
+      <div class="square primo">
+        <div class="button">{{data[0][1][0]}}</div>
+        <div class="button">{{data[0][1][1]}}</div>
+        <div class="button">{{data[0][1][2]}}</div>
+        <div class="button">{{data[0][1][3]}}</div>
+      </div>
+      <div class="square secondo">
+        <div class="button">{{data[1][1][0]}}</div>
+        <div class="button">{{data[1][1][1]}}</div>
+        <div class="button">{{data[1][1][2]}}</div>
+        <div class="button">{{data[1][1][3]}}</div>
+      </div>
+      <div class="square terzo">
+        <div class="button">{{data[2][1][0]}}</div>
+        <div class="button">{{data[2][1][1]}}</div>
+        <div class="button">{{data[2][1][2]}}</div>
+        <div class="button">{{data[2][1][3]}}</div>
+      </div>
+      <div class="square quarto">
+        <div class="button">{{data[3][1][0]}}</div>
+        <div class="button">{{data[3][1][1]}}</div>
+        <div class="button">{{data[3][1][2]}}</div>
+        <div class="button">{{data[3][1][3]}}</div>
+      </div>
+    </div>
+    <script src="../static/tracker.js"></script>
+    <script src="../static/reloader.js"></script>
+  </body>
+</html>
+

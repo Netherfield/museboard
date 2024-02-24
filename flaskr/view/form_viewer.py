@@ -5,4 +5,4 @@ def form_viewer():
     Return '__FORM__.html' template
     :return:
     """
-    return render_template("__FORM__.html")
+    return render_template("form.html")

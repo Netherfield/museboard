@@ -1,8 +1,9 @@
-from flask import Blueprint
-from view.home_viewer import home_viewer
-from database.connection_manager import sqlite_connector, PATH_SQL
+from flask import Blueprint, request
+from flaskr.view.home_viewer import home_viewer
+from flaskr.database.connection_manager import sqlite_connector, PATH_SQL
 
 home_blueprint = Blueprint("home", __name__)
+
 
 @home_blueprint.route("/home", methods= ["GET", "POST"])
 def home_control():
@@ -10,9 +11,8 @@ def home_control():
     return 'home_viewr' function from view and pass 'res' as argument
     :return:
     """
-    conx, cursor = sqlite_connector(PATH_SQL)
-    cursor.execute("SELECT * FROM board") # here for board request management
-    res = cursor.fetchall()
-    conx.commit()
-    conx.close()
+    current_url = request.url
+    print("home", current_url)
+    res = [[1, ["topic1", "topic2", "topic3","topic4"]], [2, ["topic5","topic6","topic7","topic8"]], [3, ["topic9", "topic10", "topic11","topic12"]], [4, ["topic13","topic14","topic15","topic16"]]]
     return home_viewer(res)
+

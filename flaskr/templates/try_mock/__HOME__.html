@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function showtsags(){
+            const params = new URLSearchParams(document.location.search);
+            const tag = params.get('tag');
+            const path = params.get('path');
+
+            return [tag, path]
+        }
+        function myclick(){
+            const [tag, path] = showtsags()
+            const mood = event.target.getAttribute("mood");
+            const new_path = path.concat(',', tag);
+
+            var url = new URL(window.location.href);
+            url.searchParams.set('tag', mood);
+            url.searchParams.set('path', new_path);
+            window.location.href = url;
+        }
+    </script>
+
+    <style>
+table {
+  width: 40%;
+  height: 200px;
+}
+td {
+  width: 50%;
+  height: 50%;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<h1>MUSE BOARD</h1>
+
+<p >
+    <button mood="{{data[0][1]}}" onclick="myclick()">{{data[0][1]}}</button>
+    <button  mood="{{data[-1][1]}}" onclick="myclick()">{{data[-1][1]}}</button>
+    <button mood="{{data[1][1]}}" onclick="myclick()">{{data[1][1]}}</button>
+    <button mood="{{data[-2][1]}}" onclick="myclick()">{{data[-2][1]}}</button>
+</p>
+
+
+<h2>MUSE BOARD</h2>
+
+
+<table>
+  <tr>
+      <td><button mood="{{data[3][1]}}" onclick="myclick()">{{data[3][1]}}<br><img src="{{data[3][2]}}" alt="Immagine 1"></button></td>
+      <td mood="{{data[-3][1]}}" onclick="myclick()">{{data[-3][1]}}<br><img src="{{data[-3][2]}}" alt="Immagine 2"></td>
+  </tr>
+  <tr>
+    <td mood="{{data[4][2]}}" onclick="myclick()">{{data[4][1]}}<br><img src="{{data[4][2]}}" alt="Immagine 3"></td>
+    <td  mood="{{data[-4][2]}}" onclick="myclick()">{{data[-4][1]}}<br><img src="{{data[-4][2]}}" alt="Immagine 4"></td>
+  </tr>
+</table>
+<
+ <script>
+const me = document.currentScript
+const old = me.previousElementSibling.innerHTML;
+const [tag, path] = showtsags();
+const updated = old.concat('<br>tag is ', tag, '<br>And path is ', path)
+me.previousElementSibling.innerHTML = updated
+ </script>
+</body>
+</html>

@@ -6,7 +6,5 @@ def home_viewer(data:list):
     :param data:
     :return:
     """
-    session["data_form"] = data[0]
-    print(session)
-    return render_template("__HOME__.html", data=data)
+    return render_template("home.html", data=data)
 

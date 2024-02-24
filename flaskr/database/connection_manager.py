@@ -1,4 +1,4 @@
-from database.sqlite_config import *
+from flaskr.database.sqlite_config import *
 
 
 def sqlite_connector(PATH:str) -> (sqlite3.Connection, sqlite3.Cursor):
@@ -7,5 +7,8 @@ def sqlite_connector(PATH:str) -> (sqlite3.Connection, sqlite3.Cursor):
     :param PATH:
     :return:
     """
-    return sqlite3.connect(PATH), sqlite3.connect(PATH).cursor()
+    conx = sqlite3.connect(PATH)
+    cursor = conx.cursor()
+
+    return conx, cursor
 
