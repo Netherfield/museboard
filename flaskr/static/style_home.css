@@ -45,8 +45,8 @@ body {
         margin: 0;
       }
       .square {
-        width: 400px;
-        height: 400px;
+        width: 350px;
+        height: 350px;
         display: flex;
         flex-wrap: wrap;
       }
@@ -63,6 +63,7 @@ body {
         opacity: 0.7;
       }
 
+
        .button:hover {
         background-color: #ccc;
 
@@ -71,8 +72,6 @@ body {
       .button:active {
         background-color: black;
       }
-
-
 
       .navbar a:hover,
       .dropdown:hover .dropbtn {
@@ -124,9 +123,9 @@ body {
       }
       .container {
         display: flex;
-        margin-left: 150px;
-
-      }
+        justify-content: center;
+        align-items: center;
+        }
 
       .search-container button {
         float: right;
@@ -142,8 +141,6 @@ body {
       .search-container button:hover {
         background: #ccc;
       }
-
-
 
 
 #particles-js, #parallax, .layer, .some-space, .some-more-space1 {
@@ -259,4 +256,3 @@ html {
     transform: translateY(-2000px);
   }
 }
-
