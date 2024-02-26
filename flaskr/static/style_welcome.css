@@ -5,7 +5,8 @@
 }
 
 body {
-  background: #212121;
+  background-image: url('https://www.archetravel.com/wp-content/uploads/2021/03/00.santuario-di-delfi_fb.jpg');
+  background-size: cover;
   min-height: 100dvh;
   width: 100%;
   display: flex;
