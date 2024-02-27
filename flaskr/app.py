@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask
 from flaskr.controllers.home_controller import home_blueprint
 from flaskr.controllers.form_controller import form_blueprint
 from flaskr.controllers.index_controller import index_blueprint
