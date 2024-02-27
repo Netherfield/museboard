@@ -235,11 +235,7 @@ button:focus {
   left: 0%;
   transform: translate(calc(-1 * var(--mg-left)), -50%);
 }
-.info .location::before {
-  top: 50%;
-  width: 20px;
-  height: 5px;
-}
+
 .info .location::after {
   bottom: 0;
   width: 60px;
