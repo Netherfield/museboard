@@ -26,6 +26,7 @@ def board_control():
     url = url_parser()
     tag = url['tag']
     path = url['path']
+
     """
     SELECT FROM table WHERE tag or path..
     """
