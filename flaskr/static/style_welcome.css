@@ -221,7 +221,6 @@ button:focus {
   font-weight: 800;
 }
 .info .location {
-  --mg-left: 40px;
   --text-size-offset: 0.12;
   font-weight: 600;
   margin-left: var(--mg-left);
