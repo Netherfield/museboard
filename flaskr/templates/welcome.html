@@ -1,74 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../static/style_welcome.css">
+  <meta charset="UTF-8">
+  <title>Projects</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"rel="stylesheet'><link rel="stylesheet" href="../static/style_welcome.css">
+
 </head>
 <body>
-<div class="card">
-    <div class="boxshadow"></div>
-    <div class="main">
-        <div class="top"></div>
-        <div class="left side"></div>
-        <div class="right side"></div>
-        <div class="title"><a href="https://github.com/Netherfield/BaPaDa" style="text-decoration:none; color:inherit;">BaPaDa</a></div>
-        <div class="button-container">
+<!-- partial:index.partial.html -->
+<div class="app">
 
-            <button class="button" onclick="location.href='https://github.com/Netherfield/BaPaDa'"><svg class="svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path
-                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
-                    </path>
-                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
+	<div class="cardList">
+		<button class="cardList__btn btn btn--left">
+			<div class="icon">
+				<svg>
+					<use xlink:href="#arrow-left"></use>
+				</svg>
+			</div>
+		</button>
+
+		<div class="cards__wrapper">
+			<div class="card current--card" onclick="window.location='https://github.com/Netherfield/daitv';">
+				<div class="card__image">
+					<img src="../static/img/daitvl.webp" alt="" />
+				</div>
+			</div>
+
+			<div class="card next--card" onclick="window.location='https://github.com/Netherfield/Bapada';">
+				<div class="card__image">
+					<img src="../static/img/bapada.png" alt="" />
+				</div>
+			</div>
+
+			<div class="card previous--card" onclick="window.location='http://127.0.0.1:5000/index';">
+				<div class="card__image" >
+					<img src="../static/img/museoard.png" alt="" />
+				</div>
+			</div>
+		</div>
+
+		<button class="cardList__btn btn btn--right">
+			<div class="icon">
+				<svg>
+					<use xlink:href="#arrow-right"></use>
+				</svg>
+			</div>
+		</button>
+	</div>
+
+	<div class="infoList">
+		<div class="info__wrapper">
+			<div class="info current--info">
+				<h1 class="text name">DAITV</h1>
+				<h4 class="text location">Team Delphi</h4>
+				<p class="text description">Like you've never seen it before!</p>
+			</div>
+
+			<div class="info next--info">
+				<h1 class="text name">BaPaDa</h1>
+				<h4 class="text location">Team Delphi</h4>
+				<p class="text description">Museum navigator App</p>
+			</div>
+
+			<div class="info previous--info">
+				<h1 class="text name">MuseBoard</h1>
+				<h4 class="text location">Team Delphi</h4>
+				<p class="text description">Let your dreams come true</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="app__bg">
+		<div class="app__bg__image current--image">
+			<img src="../static/img/daitv.webp" alt="" />
+		</div>
+		<div class="app__bg__image next--image">
+			<img src="../static/img/bapada.png" alt="" />
+		</div>
+		<div class="app__bg__image previous--image">
+			<img src="../static/img/museoard.png" alt="" />
+		</div>
+	</div>
 </div>
 
-<div class="card">
-    <div class="boxshadow"></div>
-    <div class="main">
-        <div class="top"></div>
-        <div class="left side"></div>
-        <div class="right side"></div>
-        <div class="title"><a href="https://github.com/Netherfield/daitv" style="text-decoration:none; color:inherit;">DAITV</a></div>
-        <div class="button-container">
-            <button class="button" onclick="location.href='https://github.com/Netherfield/daitv'"><svg class="svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path
-                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
-                    </path>
-                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
+<div class="loading__wrapper">
+	<div class="loader--text">Loading...</div>
+	<div class="loader">
+		<span></span>
+	</div>
 </div>
 
-<div class="card">
-    <div class="boxshadow"></div>
-    <div class="main">
-        <div class="top"></div>
-        <div class="left side"></div>
-        <div class="right side"></div>
-        <div class="title"><a href="http://127.0.0.1:5000/index" style="text-decoration:none; color:inherit;">MUSEBOARD</a></div>
-        <div class="button-container">
-            <button class="button" onclick="location.href='https://github.com/Netherfield/museboard'"><svg class="svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path
-                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
-                    </path>
-                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
-</div>
+
+<svg class="icons" style="display: none;">
+	<symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+		<polyline points='328 112 184 256 328 400'
+					 style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+	</symbol>
+	<symbol id="arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+		<polyline points='184 112 328 256 184 400'
+					 style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+	</symbol>
+</svg>
+
+<!-- partial -->
+  <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script><script  src="../static/wlcome.js"></script>
 
 </body>
 </html>
