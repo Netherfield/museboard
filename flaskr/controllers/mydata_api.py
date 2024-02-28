@@ -60,12 +60,11 @@ if __name__ == '__main__':
 @board_blueprint.route("/api/get_board")
 def board_control():
     url = url_parser()
-    tag = url['tag']
+    tag = url['item']
     path = url['path']
     # clicked branch
-    branch = url['branch']
+    branch = url['id']
     jump = False
-    print(tag, path)
 
     # if len(path.split("/")) % 5 == 0:
     #     jump = True
