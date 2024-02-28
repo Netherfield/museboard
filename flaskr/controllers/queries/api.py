@@ -38,12 +38,15 @@ def getLink(item_id:int):
                 FROM indexed
                 WHERE item_id = {item_id};"""
     conn = connection.create_db_connection('localhost', 'root', '', 'tree')
-    try:
-        link = connection.read_query(conn, query)
-    except:
-        link = "no_link"
 
-    return link[0][0]
+    link = connection.read_query(conn, query)
+
+    if link:
+        l = link[0][0]
+    else:
+        l = "no_link"
+
+    return l
 
 
 

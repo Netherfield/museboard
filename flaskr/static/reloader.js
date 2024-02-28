@@ -17,11 +17,10 @@ $(document).ready(function() {
                 var content = data[key]['items'][j][0];
                 var link = data[key]['items'][j][1];
                 // $(buttons[i]).text(content);
-                c = "<img src=".concat(data[key]['items'][j][1], "></img>", content)
-                $(buttons[i]).text(c);
+                $(buttons[i]).text(content);
                 
                 $(buttons[i]).attr('data-id', key);
-                
+                $(buttons[i]).find('img').attr('src', link);
                 i++;
             }
         }
