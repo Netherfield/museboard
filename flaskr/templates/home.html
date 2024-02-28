@@ -40,10 +40,10 @@
       <div class="square-container">
         <div class="text">{{data[key]['tag']}}</div>
       <div class="square" id="{{key}}">
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][0][1]}}">{{data[key]['items'][0][0]}}</div>
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][1][1]}}">{{data[key]['items'][1][0]}}</div>
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][2][1]}}">{{data[key]['items'][2][0]}}</div>
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][3][1]}}">{{data[key]['items'][3][0]}}</div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][0][1]}}" style="max-width: 50px; max-height: 50px;" ><p>{{data[key]['items'][0][0]}}</p></div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][1][1]}}" style="max-width: 50px; max-height: 50px;" ><p>{{data[key]['items'][1][0]}}</p></div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][2][1]}}" style="max-width: 50px; max-height: 50px;" ><p>{{data[key]['items'][2][0]}}</p></div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][3][1]}}" style="max-width: 50px; max-height: 50px;" ><p>{{data[key]['items'][3][0]}}</p></div>
       </div>
     </div>
       {% endfor %}

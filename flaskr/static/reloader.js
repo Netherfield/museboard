@@ -8,31 +8,21 @@ $(document).ready(function() {
         'url': currentUrl  // we can send url with get request
       },
       success: function(data) {
-        var buttons = $('.button');
-        var texts = $('.text');
-        var i = 0;
-        for (var key in data) {
-            $(texts[i]).text(data[key]['tag']);
-            for (var j=0; j < data[key]['items'].length; j++) {
-                var content = data[key]['items'][j][0];
-                var link = data[key]['items'][j][1];
-                // $(buttons[i]).text(content);
-                $(buttons[i]).text(content);
-                
-                $(buttons[i]).attr('data-id', key);
-                $(buttons[i]).find('img').attr('src', link);
-                i++;
-            }
-        }
-//      for (var i = 0; i < data.length; i++) {
-//          var numbers = data[i][1]; // data[i] = [1, ["topic1", "topic2", "topic3", "topic5]"]
-//          for (var j = 0; j < numbers.length; j++) {
-//            if (i * numbers.length + j < buttons.length) { // add error
-//              $(buttons[i * numbers.length + j]).text(numbers[j]);
-//            }
-//          }
-//        }
-      }
+  var buttons = $('.button');
+  var texts = $('.text');
+  var i = 0;
+  for (var key in data) {
+    $(texts[i]).text(data[key]['tag']);
+    for (var j=0; j < data[key]['items'].length; j++) {
+      var content = data[key]['items'][j][0];
+      var link = data[key]['items'][j][1];
+      $('p', buttons[i]).text(content);
+      $(buttons[i]).attr('data-id', key);
+      $('img', buttons[i]).attr('src', link);
+      i++;
+    }
+  }
+}
     });
   });
 });
