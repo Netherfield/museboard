@@ -34,7 +34,7 @@ def getBoards(branch_id:int, hit=False) -> list[tuple[int,int,int,str,int,str,in
 
 
 def getLink(item_id:int):
-    query = f"""SELECT item_id
+    query = f"""SELECT link
                 FROM indexed
                 WHERE item_id = {item_id};"""
     conn = connection.create_db_connection('localhost', 'root', '', 'tree')

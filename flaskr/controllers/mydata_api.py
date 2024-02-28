@@ -47,7 +47,8 @@ def get_data(branch:int, **args):
     for br in ret:
         "fix this to show boards chosen with a logic"
         ret[br]['items'] = list(dict(branchLookup[br]['items']).values())
-
+        print(ret)
+        exit()
     return ret
 
 def get_links(itemLookup:list):
