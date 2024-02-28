@@ -1,4 +1,19 @@
+def readChunk(reader, size):
 
+    next = True
+    while(next):
+        chunk = []
+        i = 0
+        while (i < size):
+            try:
+                line = reader.__next__()
+                chunk.append(line)
+            except:
+                next = False
+                break
+            i += 1
+        yield chunk
+    return None
 
 
 def batch(l:list, sample:int):
