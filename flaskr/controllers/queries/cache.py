@@ -37,37 +37,36 @@ def countUpdates(updates, item):
 
 def update(item, tags):
     db = connect()
-    cache = db["user_cache"]
-    updates = db['updates']
+    cache = db["items_cache"]
+    updates = db['updates_log']
     updateCache(cache, item, tags)
     countUpdates(updates, item)
 
 
-def getCache(n_elementi):
+def getTopitems(updates, n) -> list[str]:
+    top_count = updates.find().sort("updates_count", -1).limit(n)
+    return [entity["item"] for entity in top_count]
+
+def getCache(cache, items:list[str]) -> list[dict]:
+    itemsCache = cache.find({"item": {"$in": items}})
+    return list(itemsCache)
+
+def uncache(empty_n) -> list[dict]:
     db = connect()
-    cache = db["user_cache"]
-    results = []
-    for doc in cache.find(projection={"_id": 0}).sort("update", -1).limit(n_elementi):
-        results.append(doc)
-    print(results)
-    return results
+    cache = db["items_cache"]
+    updates = db["updates_log"]
+    items = getTopitems(updates, empty_n)
+    return getCache(cache, items) 
 
 
-def getTopitems(n):
-    db = connect()
-    updates = db['updates']
-    top_count_update = updates.find().sort("updates_count", -1).limit(n)
-    top_items = [doc["item"] for doc in top_count_update]
-    user_cache = db['user_cache']
-    items_from_user = user_cache.find({"item": {"$in": top_items}})
-    print(list(items_from_user))
-    return list(items_from_user)
+# items = {
+#         'Title':{'stranger': 5, 'drama': 8, 'boone': 3, 'florence': 2},
+#         'Art_name':{'abstract': 10, 'contemporary': 7, 'publisher': 5},
+#         'Giochi':{ 'build': 5, 'invest': 2, 'demolish': 8}
+#         }
 
-# items = [
-#     {'Title':{'stranger': 5, 'drama': 8, 'boone': 3, 'florence': 2}},
-#     { 'Art_name':{'abstract': 10, 'contemporary': 7, 'publisher': 5}},
-#     {'Giochi':{ 'build': 5, 'invest': 2, 'demolish': 8}}
-# ]
+# for item in items:
+#     update(item, list(items[item].keys()))
 
 # collection.insert_many(items)
 # getCache(3)

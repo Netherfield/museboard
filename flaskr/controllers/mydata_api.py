@@ -1,6 +1,9 @@
 from flask import Blueprint, jsonify, request
 from urllib.parse import urlparse, parse_qs
 
+import flaskr
+from flaskr.controllers.queries.api import getBoards, getLink
+from flaskr.controllers.queries.cache import update
 
 
 
@@ -17,7 +20,7 @@ def url_parser():
     return {'item': item, 'path': path[1:], 'id': id}
 
 
-from flaskr.controllers.queries.api import getBoards, getLink
+
 def get_data(branch:int, **args):
     """
     Retrieve data from branch by branch_id.
@@ -65,12 +68,19 @@ def get_links(itemLookup:list):
 @board_blueprint.route("/api/get_board")
 def board_control():
     url = url_parser()
-    tag = url['item']
+    item = url['item']
     path = url['path']
     # clicked branch
     branch = int(url['id'])
-    # if len(path.split("/")) % 5 == 0:
-    #     jump = True
+    
+
+    "LOOK AT ME IM NEW, CHECK IF I WORK"
+    try:
+        tags = path.split("/")
+        update(item, tags)
+    except:
+        print("Check if mongoDB server is running")
+
     itemLookup = get_data(branch)
 
     itemLinks = get_links(itemLookup)
