@@ -48,7 +48,13 @@ def getLink(item_id:int):
 
     return l
 
-
+def oldestSibling(tags:list[str]):
+    query = f"""SELECT sub_branch
+                FROM keytree
+                WHERE tag = '{tags[0]}';"""
+    conn = connection.create_db_connection('localhost', 'root', '', 'tree')
+    ancestors = connection.read_query(conn, query)
+    return (ancestors[0][0] % 4 ) + 1
 
 """TODO:
 implement:

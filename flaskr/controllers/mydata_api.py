@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
 from urllib.parse import urlparse, parse_qs
 
-import flaskr
-from flaskr.controllers.queries.api import getBoards, getLink
+
+from flaskr.controllers.queries.api import getBoards, getLink, oldestSibling
 from flaskr.controllers.queries.cache import update
 
 
@@ -25,14 +25,9 @@ def get_data(branch:int, **args):
     """
     Retrieve data from branch by branch_id.
     The return value is a list like so:
-    [ [('tag', 'branch'), ['item1', 'item2', ...], ... ]
+    ...
     Where branch is the branch_id relative to the tag, and items are the board items
     """
-    default = {'rand' : True, 'miss' : False, 'jump' : False, 'reset' : False}
- 
-
-    # if jump:
-    #     branch %= 100
     boardData = getBoards(branch)
     branchLookup = dict()
     for line in boardData:
@@ -64,6 +59,9 @@ def get_links(itemLookup:list):
         
     return boards
 
+def get_alternative(tags:dict):
+    return oldestSibling(tags)
+
 
 @board_blueprint.route("/api/get_board")
 def board_control():
@@ -82,14 +80,13 @@ def board_control():
         print("Check if mongoDB server is running")
 
     itemLookup = get_data(branch)
+    if itemLookup == dict():
+        jump = get_alternative(tags)
+        itemLookup = get_data(jump)
 
     itemLinks = get_links(itemLookup)
-    # linzetta = [10, []], [11, []], [12, []], [13, []]
-    # for x in range(len(linzetta)):
-    #     for _ in range(4):
-    #         a = str(random.randint(9, 1000))
-    #         s = "topic" + a
-    #         linzetta[x][1].append(s)
+
     print(url)
     print(branch, itemLinks)
     return jsonify(itemLinks)
+
