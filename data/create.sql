@@ -10,6 +10,7 @@ CREATE TABLE `indexed` (
     item_id INT(11) NOT NULL,
     item VARCHAR(255) NOT NULL,
     category INT(11) NOT NULL,
+    link VARCHAR(255) NOT NULL,
     PRIMARY KEY (item_id)
 );
 

@@ -9,8 +9,10 @@ $(document).ready(function() {
       },
       success: function(data) {
         var buttons = $('.button');
+        var texts = $('.text');
         var i = 0;
         for (var key in data) {
+            $(texts[i]).text(data[key]['tag']);
             for (var j=0; j < data[key]['items'].length; j++) {
                 var content = data[key]['items'][j];
                 $(buttons[i]).text(content);

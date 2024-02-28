@@ -4,13 +4,13 @@ import csv
 import utils
 import time
 
-query = """INSERT INTO `indexed`(`item_id`, `item`, `category`) VALUES (%s, %s, %s)"""
-with open("db/indexed.csv", "r", encoding="utf-8", newline="") as fp:
-    reader = csv.reader(fp)
-    indexes = list(reader)[1:]
-
-    conn = connection.create_db_connection('localhost', 'root', '', 'tree')
-    connection.execute_insert(conn, query, indexes)
+# query = """INSERT INTO `indexed`(`item_id`, `item`, `category`, `link`) VALUES (%s, %s, %s, %s)"""
+# with open("db/indexed.csv", "r", encoding="utf-8", newline="") as fp:
+#     reader = csv.reader(fp)
+#     indexes = list(reader)[1:]
+#
+#     conn = connection.create_db_connection('localhost', 'root', '', 'tree')
+#     connection.execute_insert(conn, query, indexes)
 
 def loadKeyTree():
     query = """INSERT INTO `keytree` (`branch`, `sub_branch`, `tag`, `category`, `item`, `item_id`) VALUES (%s, %s, %s, %s, %s, %s)"""
@@ -29,11 +29,11 @@ def loadKeyTree():
                 time.sleep(1)
                 conn = connection.create_db_connection('localhost', 'root', '', 'tree')
             
-
+loadKeyTree()
 print("done")
 
 
-loadKeyTree()
+
 
 
 

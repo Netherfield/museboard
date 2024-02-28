@@ -1,5 +1,4 @@
 from flask import Blueprint, jsonify, request
-import random
 from urllib.parse import urlparse, parse_qs
 
 
@@ -18,7 +17,7 @@ def url_parser():
     return {'item': item, 'path': path[1:], 'id': id}
 
 
-from flaskr.controllers.queries.api import getBoards, getLinks
+from flaskr.controllers.queries.api import getBoards
 def get_data(branch:int, **args):
     """
     Retrieve data from branch by branch_id.
@@ -42,6 +41,7 @@ def get_data(branch:int, **args):
             branchLookup[br] = dict()
             branchLookup[br]['tag'] = tag
             branchLookup[br]['items'] = [(cat, item)]
+
 
     ret = branchLookup
     for br in ret:

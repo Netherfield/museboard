@@ -35,19 +35,18 @@
 <div id='stars'></div>
 <div id='stars2'></div>
 <div id='stars3'></div>
-    <div></div>
     <div class="container">
-      ciao
       {% for key in data %}
-      <div class="cont">
+      <div class="square-container">
+        <div class="text">{{data[key]['tag']}}</div>
       <div class="square" id="{{key}}">
-        <div class="button" data-id="{{key}}">{{data[key]['items'][0]}}</div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['link']}}">{{data[key]['items'][0]}}</div>
         <div class="button" data-id="{{key}}">{{data[key]['items'][1]}}</div>
         <div class="button" data-id="{{key}}">{{data[key]['items'][2]}}</div>
         <div class="button" data-id="{{key}}">{{data[key]['items'][3]}}</div>
       </div>
-      {% endfor %}
     </div>
+      {% endfor %}
     </div>
 
 <script>

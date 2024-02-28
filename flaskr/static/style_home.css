@@ -44,11 +44,20 @@ body {
         font-family: inherit;
         margin: 0;
       }
+
       .square {
-        width: 350px;
-        height: 350px;
+        width: 300px;
+        height: 300px;
         display: flex;
         flex-wrap: wrap;
+        position: relative;
+      }
+      .square-container {
+        width: 300px; /* La stessa larghezza del div .square */
+        }
+
+      .square-container .text {
+      color: red;
       }
 
       .button {
@@ -123,6 +132,7 @@ body {
       }
       .container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         }
