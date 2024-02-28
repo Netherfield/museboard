@@ -14,9 +14,11 @@ $(document).ready(function() {
         for (var key in data) {
             $(texts[i]).text(data[key]['tag']);
             for (var j=0; j < data[key]['items'].length; j++) {
-                var content = data[key]['items'][j];
+                var content = data[key]['items'][j][0];
+                var link = data[key]['items'][j][1];
                 $(buttons[i]).text(content);
                 $(buttons[i]).attr('data-id', key);
+                
                 i++;
             }
         }

@@ -40,10 +40,10 @@
       <div class="square-container">
         <div class="text">{{data[key]['tag']}}</div>
       <div class="square" id="{{key}}">
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['link']}}">{{data[key]['items'][0]}}</div>
-        <div class="button" data-id="{{key}}">{{data[key]['items'][1]}}</div>
-        <div class="button" data-id="{{key}}">{{data[key]['items'][2]}}</div>
-        <div class="button" data-id="{{key}}">{{data[key]['items'][3]}}</div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][0][1]}}">{{data[key]['items'][0][0]}}</div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][1][1]}}">{{data[key]['items'][1][0]}}</div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][2][1]}}">{{data[key]['items'][2][0]}}</div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][3][1]}}">{{data[key]['items'][3][0]}}</div>
       </div>
     </div>
       {% endfor %}

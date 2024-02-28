@@ -61,6 +61,8 @@ body {
       }
 
       .button {
+        width: 150px;
+        height: 150px;
         flex: 0 1 45%;
         border: 4px solid black;
         display: flex;
