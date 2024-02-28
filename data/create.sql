@@ -4,6 +4,8 @@
 
 CREATE DATABASE `tree`;
 
+USE `tree`;
+
 CREATE TABLE `indexed` (
     item_id INT(11) NOT NULL,
     item VARCHAR(255) NOT NULL,
