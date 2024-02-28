@@ -18,7 +18,7 @@ def url_parser():
     return {'item': item, 'path': path[1:], 'id': id}
 
 
-from flaskr.controllers.queries.api import getBoards
+from flaskr.controllers.queries.api import getBoards, getLinks
 def get_data(branch:int, **args):
     """
     Retrieve data from branch by branch_id.
@@ -45,15 +45,19 @@ def get_data(branch:int, **args):
 
     ret = branchLookup
     for br in ret:
+        "fix this to show boards chosen with a logic"
         ret[br]['items'] = list(dict(branchLookup[br]['items']).values())
 
     return ret
 
+def get_links(boards:list):
+    "For every item in the board, get the links from the indexed database"
 
+    return boards
 
 
 @board_blueprint.route("/api/get_board")
-def board_control():
+def board_control(links=False):
     url = url_parser()
     tag = url['item']
     path = url['path']
@@ -62,6 +66,11 @@ def board_control():
     # if len(path.split("/")) % 5 == 0:
     #     jump = True
     linzetta = get_data(branch)
+
+    if links:
+        linzetta = get_links(linzetta)
+
+
     # linzetta = [10, []], [11, []], [12, []], [13, []]
     # for x in range(len(linzetta)):
     #     for _ in range(4):
