@@ -36,7 +36,7 @@ def get_data(branch:int, **args):
         br, tag, cat, item, item_id = int(line[2]), line[3], int(line[4]), line[5], int(line[6])
         try:
             branchLookup[br]
-            branchLookup[br]['items'] += [(cat, item)]
+            branchLookup[br]['items'] += [(cat, (item, item_id))]
         except:
             branchLookup[br] = dict()
             branchLookup[br]['tag'] = tag
