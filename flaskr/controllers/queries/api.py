@@ -1,7 +1,8 @@
 
-
-import flaskr.controllers.queries.connection as connection
-
+try:
+    import flaskr.controllers.queries.connection as connection
+except:
+    import connection
 
 
 
@@ -30,6 +31,20 @@ def getBoards(branch_id:int, hit=False) -> list[tuple[int,int,int,str,int,str,in
     if boards == [] and hit:
         return getBoards(branch_id - 1, True)
     return boards
+
+
+def getLink(item_id:int):
+    query = f"""SELECT item_id
+                FROM indexed
+                WHERE item_id = {item_id};"""
+    conn = connection.create_db_connection('localhost', 'root', '', 'tree')
+    try:
+        link = connection.read_query(conn, query)
+    except:
+        link = "no_link"
+
+    return link[0][0]
+
 
 
 """TODO:
