@@ -24,6 +24,11 @@ def requestStatus(log):
     return statusWrapper
 
 @requestStatus(log=True)
+def remove(items:list[dict]):
+    result = ...
+    return result, "Could not find entry"
+
+@requestStatus(log=True)
 def updateCache(cache, item, tags):
     query = {"item": item}
     result = cache.update_one(query, {"$inc": {f"tags.{tag}": 1 for tag in tags}}, upsert=True)
@@ -43,11 +48,13 @@ def update(item, tags):
     countUpdates(updates, item)
 
 
+
 def getTopitems(updates, n) -> list[str]:
-    top_count = updates.find().sort("updates_count", -1).limit(n)
+    top_count = updates.find().sort("update_count", -1).limit(n)
     return [entity["item"] for entity in top_count]
 
 def getCache(cache, items:list[str]) -> list[dict]:
+    """Return items from the collection, order is NOT guaranteed"""
     itemsCache = cache.find({"item": {"$in": items}})
     return list(itemsCache)
 
@@ -56,8 +63,18 @@ def uncache(empty_n) -> list[dict]:
     cache = db["items_cache"]
     updates = db["updates_log"]
     items = getTopitems(updates, empty_n)
-    return getCache(cache, items) 
+    itemsCache = getCache(cache, items)
+    remove(items)
 
+    return itemsCache 
+
+
+def getCatalogue(n:int=100) -> dict[str:list[str]]:
+    items = uncache(n)
+    catalogue = dict()
+    for item in items:
+        catalogue[item['item']] = list(item['tags'].keys())
+    return catalogue
 
 # items = {
 #         'Title':{'stranger': 5, 'drama': 8, 'boone': 3, 'florence': 2},
