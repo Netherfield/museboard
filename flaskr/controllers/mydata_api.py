@@ -66,14 +66,16 @@ def board_control():
     branch = url['id']
     jump = False
 
+    
+
     # if len(path.split("/")) % 5 == 0:
     #     jump = True
 
     linzetta = get_data(branch, jump)
-    linzetta = [10, []], [11, []], [12, []], [13, []]
-    for x in range(len(linzetta)):
-        for _ in range(4):
-            a = str(random.randint(9, 1000))
-            s = "topic" + a
-            linzetta[x][1].append(s)
+    # linzetta = [10, []], [11, []], [12, []], [13, []]
+    # for x in range(len(linzetta)):
+    #     for _ in range(4):
+    #         a = str(random.randint(9, 1000))
+    #         s = "topic" + a
+    #         linzetta[x][1].append(s)
     return jsonify(linzetta)
