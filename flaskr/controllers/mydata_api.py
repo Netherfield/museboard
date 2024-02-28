@@ -1,16 +1,9 @@
-from flask import Blueprint, request, jsonify
-from urllib.parse import urlparse, parse_qs
+from flask import Blueprint, jsonify, request
 import random
+from urllib.parse import urlparse, parse_qs
+
 
 board_blueprint = Blueprint("board", __name__)
-
-
-def get_data():
-    """
-    Get Board Data -> ][1, [1,2,3,4]], [2, [1,2,3,4]], ...]
-    :return:
-    """
-    pass
 
 def url_parser():
     url = request.args.get('url')
@@ -20,12 +13,20 @@ def url_parser():
     path = params.get('path', [None])[0].split('/')
     return {'tag': tag, 'path': path[1:]}
 
+def get_data():
+    """
+    Get Board Data -> ][1, [1,2,3,4]], [2, [1,2,3,4]], ...]
+    :return:
+    """
+    pass
+
 
 @board_blueprint.route("/api/get_board")
 def board_control():
     url = url_parser()
     tag = url['tag']
     path = url['path']
+
     """
     SELECT FROM table WHERE tag or path..
     """
