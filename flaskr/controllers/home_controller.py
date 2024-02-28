@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flaskr.view.home_viewer import home_viewer
-from flaskr.database.connection_manager import sqlite_connector, PATH_SQL
+from flaskr.controllers.mydata_api import get_data
 
 home_blueprint = Blueprint("home", __name__)
 
@@ -17,8 +17,8 @@ def home_control():
     return 'home_viewr' function from view and pass 'res' as argument
     :return:
     """
-    # res = get_branch()
-    res = [[1, ["topic1", "topic2", "topic3","topic4"]], [2, ["topic5","topic6","topic7","topic8"]],
-           [3, ["topic9", "topic10", "topic11","topic12"]], [4, ["topic13","topic14","topic15","topic16"]]]
+    res = get_data(1)
+    # res = [[1, ["topic1", "topic2", "topic3","topic4"]], [2, ["topic5","topic6","topic7","topic8"]],
+    #        [3, ["topic9", "topic10", "topic11","topic12"]], [4, ["topic13","topic14","topic15","topic16"]]]
     return home_viewer(res)
 

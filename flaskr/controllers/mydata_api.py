@@ -11,12 +11,14 @@ def url_parser():
     url = request.args.get('url')
     parsed_url = urlparse(url)
     params = parse_qs(parsed_url.query)
-    tag = params.get('tag', [None])[0]
+    item = params.get('item', [None])[0]
     path = params.get('path', [None])[0].split('/')
-    return {'tag': tag, 'path': path[1:]}
+    id = params.get('id')[0]
+    print(url)
+    return {'item': item, 'path': path[1:], 'id': id}
 
 
-from queries.api import getBoards
+from flaskr.controllers.queries.api import getBoards
 def get_data(branch:int, **args):
     """
     Retrieve data from branch by branch_id.
@@ -43,17 +45,10 @@ def get_data(branch:int, **args):
 
     ret = branchLookup
     for br in ret:
-        branchLookup[br]['items'] = list(dict(branchLookup[br]['items']).values())
-    
-    
+        ret[br]['items'] = list(dict(branchLookup[br]['items']).values())
 
-    for br in ret:
-        print(br)
-        for key in ret[br]:
-            print(key, ret[br][key])
+    return ret
 
-if __name__ == '__main__':
-    get_data(1)
 
 
 
@@ -63,19 +58,16 @@ def board_control():
     tag = url['item']
     path = url['path']
     # clicked branch
-    branch = url['id']
-    jump = False
-
-    
-
+    branch = int(url['id'])
     # if len(path.split("/")) % 5 == 0:
     #     jump = True
-
-    linzetta = get_data(branch, jump)
+    linzetta = get_data(branch)
     # linzetta = [10, []], [11, []], [12, []], [13, []]
     # for x in range(len(linzetta)):
     #     for _ in range(4):
     #         a = str(random.randint(9, 1000))
     #         s = "topic" + a
     #         linzetta[x][1].append(s)
+    print(url)
+    print(branch, linzetta)
     return jsonify(linzetta)

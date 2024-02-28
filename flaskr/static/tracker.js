@@ -1,18 +1,23 @@
-var buttons = document.querySelectorAll('.button');
-var path = '';
+document.addEventListener('DOMContentLoaded', function() {
+  var buttons = document.querySelectorAll('.button');
+  var path = '';
 
-buttons.forEach(function(button) {
-  button.addEventListener('click', function(e) {
-    e.preventDefault();
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
 
-    // get Text from button
-    var buttonContent = encodeURIComponent(this.textContent || this.innerText);
+      // get ID from button
+      var buttonId = this.getAttribute('data-id');
 
-    // add to path
-    path += '/' + buttonContent;
+      // get Text from button
+      var buttonText = encodeURIComponent(this.textContent || this.innerText);
 
-    // reloading url in local (NO reload page)
-    history.pushState(null, '', window.location.origin + window.location.pathname + '?tag=' + buttonContent + '&path=' + path);
+      // add to path
+      path += '/' + buttonText;
+
+      // reloading url in local (NO reload page)
+      history.pushState(null, '', window.location.origin + window.location.pathname + '?item=' + buttonText + '&id=' + buttonId + '&path=' + path);
+    });
   });
 });
 

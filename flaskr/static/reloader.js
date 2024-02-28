@@ -9,14 +9,23 @@ $(document).ready(function() {
       },
       success: function(data) {
         var buttons = $('.button');
-        for (var i = 0; i < data.length; i++) {
-          var numbers = data[i][1]; // data[i] = [1, ["topic1", "topic2", "topic3", "topic5]"]
-          for (var j = 0; j < numbers.length; j++) {
-            if (i * numbers.length + j < buttons.length) { // add error
-              $(buttons[i * numbers.length + j]).text(numbers[j]);
+        var i = 0;
+        for (var key in data) {
+            for (var j=0; j < data[key]['items'].length; j++) {
+                var content = data[key]['items'][j];
+                $(buttons[i]).text(content);
+                $(buttons[i]).attr('data-id', key);
+                i++;
             }
-          }
         }
+//      for (var i = 0; i < data.length; i++) {
+//          var numbers = data[i][1]; // data[i] = [1, ["topic1", "topic2", "topic3", "topic5]"]
+//          for (var j = 0; j < numbers.length; j++) {
+//            if (i * numbers.length + j < buttons.length) { // add error
+//              $(buttons[i * numbers.length + j]).text(numbers[j]);
+//            }
+//          }
+//        }
       }
     });
   });

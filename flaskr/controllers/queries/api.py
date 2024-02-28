@@ -1,6 +1,6 @@
 
 
-import queries.connection as connection
+import flaskr.controllers.queries.connection as connection
 
 
 
