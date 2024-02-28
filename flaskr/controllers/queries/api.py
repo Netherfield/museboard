@@ -44,7 +44,7 @@ def getLink(item_id:int):
     if link:
         l = link[0][0]
     else:
-        l = "no_link"
+        l = "https://www.shutterstock.com/image-vector/image-not-found-failure-network-260nw-2330163829.jpg"
 
     return l
 

@@ -46,14 +46,14 @@ body {
       }
 
       .square {
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
         display: flex;
         flex-wrap: wrap;
         position: relative;
       }
       .square-container {
-        width: 300px; /* La stessa larghezza del div .square */
+        width: 400px; /* La stessa larghezza del div .square */
         }
 
       .square-container .text {
@@ -61,8 +61,8 @@ body {
       }
 
       .button {
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         flex: 0 1 45%;
         border: 4px solid black;
         display: flex;
@@ -72,7 +72,12 @@ body {
         transition: background-color 0.3s ease;
         background-color: white;
         opacity: 0.7;
+        overflow: hidden;
       }
+
+      .button p {
+        text-overflow: ellipsis;  /* Mostra i puntini di sospensione se il testo supera il div */
+}
 
 
        .button:hover {

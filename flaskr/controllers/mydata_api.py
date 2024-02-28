@@ -58,7 +58,6 @@ def get_links(itemLookup:list):
         boards[br]['items'] = []
         for item in itemLookup[br]['items']:
             boards[br]['items'] += [(item[0], getLink(item[1]))]
-        
     return boards
 
 

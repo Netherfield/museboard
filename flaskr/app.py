@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flaskr.controllers.home_controller import home_blueprint
 from flaskr.controllers.form_controller import form_blueprint
 from flaskr.controllers.index_controller import index_blueprint
@@ -8,6 +9,7 @@ from flaskr.controllers.welcome_controller import welcome_blueprint
 from flaskr.controllers.color_api import color_blueprint
 
 apx = Flask(__name__)
+
 
 apx.register_blueprint(home_blueprint)
 apx.register_blueprint(form_blueprint)
@@ -19,6 +21,7 @@ apx.register_blueprint(color_blueprint)
 
 apx.secret_key = "MUSEBOARD"
 
+CORS(apx)
 
 if __name__ == "__main__":
     apx.run(debug=True)
