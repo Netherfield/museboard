@@ -17,26 +17,40 @@ def url_parser():
 
 
 from queries.api import getBoards
-def get_data(branch:int, *args):
+def get_data(branch:int, **args):
     """
     Retrieve data from branch by branch_id.
     The return value is a list like so:
     [ [('tag', 'branch'), ['item1', 'item2', ...], ... ]
     Where branch is the branch_id relative to the tag, and items are the board items
     """
-    default = {'random' : True, 'miss' : False}
+    default = {'rand' : True, 'miss' : False, 'jump' : False, 'reset' : False}
+ 
+
+    # if jump:
+    #     branch %= 100
     boardData = getBoards(branch)
     branchLookup = dict()
     for line in boardData:
-        br, tag, item, item_id = int(line[2]), line[3], line[5], int(line[6])
+        br, tag, cat, item, item_id = int(line[2]), line[3], int(line[4]), line[5], int(line[6])
         try:
             branchLookup[br]
-            branchLookup[br]['items'] += [item]
+            branchLookup[br]['items'] += [(cat, item)]
         except:
             branchLookup[br] = dict()
             branchLookup[br]['tag'] = tag
-            branchLookup[br]['items'] = [item]
-    print(branchLookup)
+            branchLookup[br]['items'] = [(cat, item)]
+
+    ret = branchLookup
+    for br in ret:
+        branchLookup[br]['items'] = list(dict(branchLookup[br]['items']).values())
+    
+    
+
+    for br in ret:
+        print(br)
+        for key in ret[br]:
+            print(key, ret[br][key])
 
 if __name__ == '__main__':
     get_data(1)
@@ -48,12 +62,15 @@ def board_control():
     url = url_parser()
     tag = url['tag']
     path = url['path']
-
-    """
-    SELECT FROM table WHERE tag or path..
-    """
+    # clicked branch
+    branch = url['branch']
+    jump = False
     print(tag, path)
-    # linzetta = get_data(branch)
+
+    # if len(path.split("/")) % 5 == 0:
+    #     jump = True
+
+    linzetta = get_data(branch, jump)
     linzetta = [10, []], [11, []], [12, []], [13, []]
     for x in range(len(linzetta)):
         for _ in range(4):

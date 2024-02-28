@@ -1,6 +1,6 @@
 
 
-import connection
+import queries.connection as connection
 
 
 
