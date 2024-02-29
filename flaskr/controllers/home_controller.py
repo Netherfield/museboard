@@ -1,7 +1,6 @@
 from flask import Blueprint, request
 from flaskr.view.home_viewer import home_viewer
 from flaskr.controllers.mydata_api import get_data, get_links
-
 home_blueprint = Blueprint("home", __name__)
 
 def get_branch():
