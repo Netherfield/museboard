@@ -56,9 +56,6 @@ def oldestSibling(tags:list[str]):
     ancestors = connection.read_query(conn, query)
     return (ancestors[0][0] % 4 ) + 1
 
-"""TODO:
-implement:
-- getUnindexed: queries the unindexed list for random(?) items
-- getUnlimited: queries a far off branch to keep retrieving boards and/or queries the unindexed
-"""
+
+
 
