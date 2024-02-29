@@ -1,9 +1,0 @@
-**/__pycache__
-**/notes.txt
-
-flaskr/controllers/queries/db/*.csv
-
-
-data/drop
-data/load
-.idea

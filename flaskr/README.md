@@ -1,1 +1,0 @@
-ADD DB PATH in 'flaskr\database\sqlite_config'
