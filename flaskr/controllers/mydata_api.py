@@ -68,15 +68,17 @@ def board_control():
     item = url['item']
     path = url['path']
     # clicked branch
-    branch = int(url['id'])
+    branch = url['id']
     
 
     "LOOK AT ME IM NEW, CHECK IF I WORK"
-    tags = path
-    if branch[0] == 'U':
+    label = branch[0]
+    if label == 'U':
         update(item, path)
     else:
-        print("Check if mongoDB server is running")
+        branch = int(branch)
+        
+
 
     itemLookup = get_data(branch)
     if itemLookup == dict():
