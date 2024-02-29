@@ -8,21 +8,21 @@ $(document).ready(function() {
         'url': currentUrl  // we can send url with get request
       },
       success: function(data) {
-  var buttons = $('.button');
-  var texts = $('.text');
-  var i = 0;
-  for (var key in data) {
-    $(texts[i]).text(data[key]['tag']);
-    for (var j=0; j < data[key]['items'].length; j++) {
-      var content = data[key]['items'][j][0];
-      var link = data[key]['items'][j][1];
-      $('p', buttons[i]).text(content);
-      $(buttons[i]).attr('data-id', key);
-      $('img', buttons[i]).attr('src', link);
-      i++;
-    }
-  }
-}
+        var buttons = $('.button');
+        var texts = $('.text');
+        var i = 0;
+        for (var key in data) {
+          $(texts[i]).text(data[key]['tag']);
+          i++;
+          for (var j=0; j < data[key]['items'].length; j++) {
+            var content = data[key]['items'][j][0];
+            var link = data[key]['items'][j][1];
+            $('p', buttons[j + (i-1)*data[key]['items'].length]).text(content);
+            $(buttons[j + (i-1)*data[key]['items'].length]).attr('data-id', key);
+            $('img', buttons[j + (i-1)*data[key]['items'].length]).attr('src', link);
+          }
+        }
+      }
     });
   });
 });

@@ -2,6 +2,12 @@
 <html>
   <head>
     <title>Home</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Moul&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -40,10 +46,10 @@
       <div class="square-container">
         <div class="text">{{data[key]['tag']}}</div>
       <div class="square" id="{{key}}">
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][0][1]}}" style="max-width: 50px; max-height: 50px;" ><p>{{data[key]['items'][0][0]}}</p></div>
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][1][1]}}" style="max-width: 50px; max-height: 50px;" ><p>{{data[key]['items'][1][0]}}</p></div>
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][2][1]}}" style="max-width: 50px; max-height: 50px;" ><p>{{data[key]['items'][2][0]}}</p></div>
-        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][3][1]}}" style="max-width: 50px; max-height: 50px;" ><p>{{data[key]['items'][3][0]}}</p></div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][0][1]}}" style="width: auto; max-height: 70%;" ><p >{{data[key]['items'][0][0]}}</p></div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][1][1]}}" style="width: auto; max-height: 70%;" ><p >{{data[key]['items'][1][0]}}</p></div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][2][1]}}" style="width: auto; max-height: 70%;" ><p >{{data[key]['items'][2][0]}}</p></div>
+        <div class="button" data-id="{{key}}"><img src="{{data[key]['items'][3][1]}}" style="width: auto; max-height: 70%;" ><p >{{data[key]['items'][3][0]}}</p></div>
       </div>
     </div>
       {% endfor %}
