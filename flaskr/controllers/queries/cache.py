@@ -47,8 +47,6 @@ def update(item, tags):
     updateCache(cache, item, tags)
     countUpdates(updates, item)
 
-
-
 def getTopitems(updates, n) -> list[str]:
     top_count = updates.find().sort("update_count", -1).limit(n)
     return [entity["item"] for entity in top_count]

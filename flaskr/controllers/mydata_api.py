@@ -72,10 +72,10 @@ def board_control():
     
 
     "LOOK AT ME IM NEW, CHECK IF I WORK"
-    try:
-        tags = path.split("/")
+    tags = path.split("/")
+    if branch[0] == 'U':
         update(item, tags)
-    except:
+    else:
         print("Check if mongoDB server is running")
 
     itemLookup = get_data(branch)
