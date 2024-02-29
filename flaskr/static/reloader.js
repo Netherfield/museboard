@@ -8,6 +8,9 @@ $(document).ready(function() {
         'url': currentUrl  // we can send url with get request
       },
       success: function(data) {
+//      RICEVI DATA COME UN ARRAY CON IL DIZIONARIO NORMALE A VALORE [0]
+//      E DEI PARAMETRI A VALORE [1]
+//      SE IL PARAMETRO FLUSH è TRUE ALLORA ELIMINA PATH
         var buttons = $('.button');
         var texts = $('.text');
         var i = 0;
