@@ -1,0 +1,8 @@
+**/__pycache__
+**/notes.txt
+
+**/db/keytree.csv
+
+data/drop
+data/load
+.idea
