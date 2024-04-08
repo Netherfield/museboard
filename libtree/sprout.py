@@ -185,7 +185,7 @@ def main():
     fp = open("tree.csv", "w", encoding="utf-8", newline="")
     writer = csv.writer(fp)
     """these will be branch, sub branch, tag, category and item
-    but I will be unsufferable for a second"""
+    but I will be insufferable for a second"""
     writer.writerow(['branch', 'twig', 'bark', 'genus', 'leaf'])
     for branch, path, depth in getClusters(catalogues, leaves, pathStart, __DEPTH__):
 
